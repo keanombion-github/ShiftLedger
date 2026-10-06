@@ -1,6 +1,6 @@
 # Netlify demo deployment
 
-Published October 6, 2026: https://shiftledger-demo.netlify.app. Netlify project ID: `bea85ba3-8ba3-4459-9d6b-547f9cb50d43`. Dashboard: https://app.netlify.com/projects/shiftledger-demo. This was a manual static deployment; updates must target this existing project rather than create another project through Netlify Drop.
+Published October 6, 2026: https://shiftledger-demo.netlify.app. Netlify project ID: `bea85ba3-8ba3-4459-9d6b-547f9cb50d43`. Dashboard: https://app.netlify.com/projects/shiftledger-demo. The existing Netlify project is now linked to https://github.com/keanombion-github/ShiftLedger. Pushes to main build the web frontend and publish web/out to the same site URL.
 
 The frontend is a static Next.js export. It needs no API server, database, secrets, or Netlify Functions for this milestone. `netlify.toml` specifies the `web` base directory, build command, pinned Node version, and `out` publish directory.
 
@@ -19,7 +19,7 @@ npm --prefix web run build
 Compress-Archive -Path web/out/* -DestinationPath dist/shiftledger-demo.zip -Force
 ```
 
-For automatic deployments later, push the source to your own Git repository and import it into Netlify. The root `netlify.toml` supplies the build settings.
+Automatic deployment uses the main branch of the ShiftLedger GitHub repository. The root netlify.toml supplies the web base directory, npm run build command, out publish directory, and Node version. Manual uploads are an optional fallback; upload to the existing project rather than creating a duplicate.
 
 ## Persistence boundaries
 
@@ -28,3 +28,4 @@ One versioned browser entry stores the correction decision/reason and at most 20
 Reset replaces the stored demo with its initial state and keeps theme preference. Clearing site data also removes progress. A storage failure leaves the app usable for the visit and displays a message. Invalid saved data falls back to initial fixtures and displays a recovery message. Open tabs synchronize changes through storage events, but this remains a fictional sandbox with no server authorization or durable audit guarantees.
 
 No attendance data is sent to a server. The .NET foundation is not deployed for this browser-only milestone. The public demo does not generate real payroll or published payslips yet.
+
