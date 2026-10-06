@@ -1,0 +1,14 @@
+**/node_modules/
+**/.next/
+**/bin/
+**/obj/
+**/TestResults/
+**/.env*
+!**/.env.example
+.DS_Store
+*.log
+**/test-results/
+**/playwright-report/
+**/*.tsbuildinfo
+web/out/
+dist/
